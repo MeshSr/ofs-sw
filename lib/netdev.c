@@ -1441,6 +1441,10 @@ netdev_nodev_get_flags(const char *netdev_name, enum netdev_flags *flagsp)
     if (flags & IFF_LOWER_UP) {
         *flagsp |= NETDEV_CARRIER;
     }
+    /* Jamie change, and add the following */ 
+    if (flags & IFF_RUNNING) { 
+        *flagsp |= NETDEV_CARRIER; 
+    } 
     return 0;
 }
 
